@@ -18,8 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(stormpath.init(app,{
   website: true,
 }))
-
-
+/*Routes for WebPlatform*/
+app.get('/',function(req,res){
+  res.render('home/index')
+})
 /*Server listening*/
 app.on('stormpath.ready',function(){
   app.listen(port)
