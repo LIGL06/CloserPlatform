@@ -1,0 +1,24 @@
+{
+  "name": "cloer-platform",
+  "version": "1.0.0",
+  "description": "Plataforma para Closer en REST con SQLite,Express,Jade...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LIGL06/CloserPlatform.git"
+  },
+  "keywords": [
+    "Closer",
+    "Food",
+    "Promotions"
+  ],
+  "author": "Luis Iván García Luna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LIGL06/CloserPlatform/issues"
+  },
+  "homepage": "https://github.com/LIGL06/CloserPlatform#readme"
+}
