@@ -16,14 +16,15 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 /*Stormpath Middleware*/
 app.use(stormpath.init(app,{
-  website: true,
+  website: true
 }))
 /*Routes for WebPlatform*/
 app.get('/',function(req,res){
   res.render('home/index')
 })
 /*Server listening*/
-app.on('stormpath.ready',function(){
-  app.listen(port)
-  console.log('App listening on %s', port)
-})
+// app.on('stormpath.ready',function(){
+//   app.listen(port)
+//   console.log('App listening on %s', port)
+// })
+app.listen(port)
