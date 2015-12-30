@@ -1,7 +1,7 @@
 'use strict'
 /*Main Dependencies*/
 const express = require('express')
-const stormpath = require('express-stormpath')
+// const stormpath = require('express-stormpath')
 const jade = require('jade')
 const fs = require('fs')
 const bodyParser = require('body-parser')
@@ -15,9 +15,9 @@ app.set('views','./views')
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 /*Stormpath Middleware*/
-app.use(stormpath.init(app,{
-  website: true
-}))
+// app.use(stormpath.init(app,{
+//   website: true
+// }))
 /*Routes for WebPlatform*/
 app.get('/',function(req,res){
   res.render('home/index')
