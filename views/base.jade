@@ -14,5 +14,20 @@ html(lang='en-US')
     script(src="/js/bootstrap.js")
     title Closer - Connecting people
   body
+    nav.navbar.navbar-default(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navbar-brand-centered')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .navbar-brand.navbar-brand-centered LOGOTIPO
+        #navbar-brand-centered.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/') Crear un nuevo usuario
+            li
+              a(href='/users/') Ver todos los usuarios
     block contenido
     

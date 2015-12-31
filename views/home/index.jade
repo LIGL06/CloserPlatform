@@ -1,3 +1,23 @@
 extends ../base.jade
 block contenido
-  h1 Hola Mundo
+  form(method="POST",action="/user")
+    .col-sm-6.col-md-offset-3
+      h4 Añadir usuario
+      .panel.panel-default
+        .panel-body.form-horizontal.payment-form
+          .form-group
+            label.col-sm-3.control-label Username
+            .col-sm-9
+              input#username.form-control(name="username",type="text")
+          .form-group
+            label.col-sm-3.control-label Correo electrónico
+            .col-sm-9
+              input#email.form-control(name="email",type="text")
+          .form-group
+            label.col-sm-3.control-label Username
+            .col-sm-9
+              input#password.form-control(name="username",type="password")
+          .form-group
+            .col-sm-12.text-right
+              button.btn.btn-primary.preview-add-button(type="submit")
+                span.glyphicon.glyphicon-plus ADD
