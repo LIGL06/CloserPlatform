@@ -1,12 +1,17 @@
 const express = require('express')
 const stormpath = require('express-stormpath')
+const sqlite = require('sqlite3').verbose() //email,username,password,Bday
+const db = new sqlite.Database('emailsdb')
 const app = express()
 const router = express.Router()
 const port = process.env.PORT || 12000
 // const UserModel = require('../models/users')
 app.set('view engine','jade')
-app.set('views','./views')
 app.use(express.static('public'))
+/*Db parameters*/
+db.serialize(function(){
+  db.run('CREATE TABLE IF NOT EXISTS emails (key TEXT, email VARCHAR(255), userame')
+})
 /*Stormpath Middleware*/
 app.use(stormpath.init(app,{
   "application":{
@@ -198,6 +203,9 @@ app.post('/register',function(req,res){
   // if (err) { return console.error(err); }
   // console.log(json);
   // })
+})
+app.post('/',function(req,res){
+
 })
 /*Routes for WebPlatform PUTS*/
 app.put('/user',function(req,res){

@@ -13,11 +13,13 @@ const sendgrid = require('sendgrid')(process.env.SENDG_ID)
 const app = express()
 const compHtml = jade.renderFile('./views/email/email.jade')
 /*Routers*/
-const routes = require('./routes/index') //
-const users = require('./routes/users') //
+const routes = require('./index') //
+const users = require('./users') //
 /*Basic Express config*/
-app.use(logger('dev'))
+app.set('view engine','jade')
+app.set('views','../views')
 app.use(express.static('public'))
+app.use(logger('dev'))
 app.use(bodyParser.json()) //
 app.use(bodyParser.urlencoded({ extended: true }))
 /*methodOverride*/
