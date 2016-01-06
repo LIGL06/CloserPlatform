@@ -3,17 +3,17 @@ const assert = require('assert')
 const express = require('express')
 const status = require('http-status')
 const superagent = require('superagent')
-const wagner = requrie('wagner-core')
+const wagner = require('wagner-core')
 
 const URL_ROOT = 'http://localhost:12000'
 var challenge_ID = 1
 
-describe('User Journaul', function(){
-  const server
-  const Category
-  const challenge
-  const Stripe
-  const User
+describe('User Journal', function(){
+  var server;
+  var Category;
+  var challenge;
+  var Stripe;
+  var User;
   before(function(){
     const app = express()
     models = require('./models')(wagner)
@@ -55,7 +55,7 @@ describe('User Journaul', function(){
     ]
     const challenges = [
       {
-        _id : challenge_ID
+        _id : challenge_ID,
         name: '30 minutes Challenge',
         category: { _id: 'Cinco Personas o menos'},
         points: {
@@ -74,7 +74,6 @@ describe('User Journaul', function(){
         journal: []
       }
     }]
-
     Category.create(categories, function(error){
       assert.ifError(error)
       Challenge.create(challenges, function(error){
@@ -106,7 +105,6 @@ describe('User Journaul', function(){
     })
     it('can load users journal',function(done){
       const url = URL_ROOT + '/me'
-
       User.findOne({},function(error,user){
         assert.ifError(error)
         user.data.journal = [{ challenge: challenge_ID, quantity: 1}]
@@ -115,7 +113,7 @@ describe('User Journaul', function(){
           superagent.get(url,function(error,res){
             assert.ifError(error)
             assert.equal(res.status, 200)
-            const result
+            var result;
             assert.doesNotThrow(function(){
               result = JSON.parse(res.text).user
             })
@@ -129,7 +127,6 @@ describe('User Journaul', function(){
     })
     it('can check out',function(done){
       const url = URL_ROOT + '/checkout'
-
       User.findOne({},function(error,user){
         asert.ifError(error)
         user.data.journal = [{ product: challenge_ID, quantify: 1 }]
@@ -145,7 +142,7 @@ describe('User Journaul', function(){
           }).end(function(error,res){
             assert.ifError(error)
             assert.equal(res.status, 200)
-            const result
+            var result;
             assert.doesNotThrow(function(){
               result = JSON.parse(res.text)
             })
