@@ -8,9 +8,9 @@ module.exports = function(wagner){
   const Category =
     mongoose.model('Category', require('./category'), 'categories')
   const Challenge =
-    mongoose.models('Challenge', require('./challenge'), 'challenges')
+    mongoose.model('Challenge', require('./challenge'), 'challenges')
   const User =
-    mongoose.models('User', require('./user'), 'users')
+    mongoose.model('User', require('./user'), 'users')
 
   const models = {
     Category: Category,

@@ -47,4 +47,4 @@ schema.set('toObject',{ virtuals: true })
 schema.set('toJSON', { virtual: true })
 
 module.exports = schema
-module.exports.productSchema = productSchema
+module.exports.challengeSchema = challengeSchema
