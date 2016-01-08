@@ -1,12 +1,11 @@
-'use strict'
-const mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
 module.exports = new mongoose.Schema({
   profile: {
     username: {
       type: String,
       required: true,
-      lowecase: true
+      lowercase: true
     },
     picture: {
       type: String,
@@ -15,22 +14,19 @@ module.exports = new mongoose.Schema({
     }
   },
   data: {
-    oauth: {
-      type: String,
-      required: true
-    },
-    journal: [{
-      challenge: {
+    oauth: { type: String, required: true },
+    cart: [{
+      product: {
         type: mongoose.Schema.Types.ObjectId
       },
-      quantify: {
+      quantity: {
         type: Number,
         default: 1,
         min: 1
       }
     }]
   }
-})
+});
 
-module.exports.set('toObject', {virtuals: true})
-module.exporst.set('toJSON', {virtuals: true})
+module.exports.set('toObject', { virtuals: true });
+module.exports.set('toJSON', { virtuals: true });

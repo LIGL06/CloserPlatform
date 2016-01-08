@@ -1,8 +1,7 @@
-'use strict'
-const mongoose = require('mongoose')
+var mongoose = require('mongoose');
 
-const categorySchema = {
-  _id: { type: String},
+var categorySchema = {
+  _id: { type: String },
   parent: {
     type: String,
     ref: 'Category'
@@ -11,7 +10,7 @@ const categorySchema = {
     type: String,
     ref: 'Category'
   }]
-}
+};
 
-module.exports = new mongoose.Schema(categorySchema)
-module.exports.categorySchema = categorySchema
+module.exports = new mongoose.Schema(categorySchema);
+module.exports.categorySchema = categorySchema;

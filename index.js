@@ -1,16 +1,14 @@
-'use strict'
-const expres = require('express')
-const wagner = requre('wagner-core')
-const port = process.env.PORT || 12000
+var express = require('express');
+var wagner = require('wagner-core');
 
-require('./modelos')(wagner)
-require('./dependencias')(wagner)
+require('./models')(wagner);
+require('./dependencies')(wagner);
 
-const app = express()
+var app = express();
 
-wagner.invoke(require('./autenticacion'),{ app: app })
+wagner.invoke(require('./auth'), { app: app });
 
-app.use('/api/v1', require('./api')(wagner))
+app.use('/api/v1', require('./api')(wagner));
 
-app.listen(port)
-console.log('Pa ke quieres saber eso jajaja saludos')
+app.listen(3000);
+console.log('Listening on port 3000!');
